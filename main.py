@@ -1,15 +1,8 @@
 import asyncio
-
-
-class RedisServer:
-    def __init__(self, host="localhost", port=6379):
-        self.host = host
-        self.port = port
-        self.server = None
-
-    async def start(self):
-        print("Starting Redis server...")
+from server import RedisServer
 
 
 if __name__ == "__main__":
-    asyncio.run(RedisServer().start())
+    loop = asyncio.get_event_loop()
+    server = RedisServer()
+    loop.run_until_complete(server.start())
